@@ -4,7 +4,6 @@ import { CloudGenres } from "components/CloudGenres";
 import { genresList } from "actions/genresListAction";
 import { selectedGenresId } from "actions/selectedGenresIdAction";
 
-
 const mapStateToProps = (state) => {
   return {
     genres: state.cloudGenresReducer.genres,
