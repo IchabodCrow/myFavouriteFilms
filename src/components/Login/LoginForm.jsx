@@ -4,11 +4,9 @@ import { useHistory } from 'react-router-dom'
 import insteadServer from '../../services/insteadServer'
 import { withRouter } from 'react-router-dom'
 
-import '../../styles/main.css'
-
 const LoginForm = (props) => {
   return (
-    <form onSubmit={props.handleSubmit}>
+    <form onSubmit={props.handleSubmit} className="bg-white">
       <div>
         <Field name="email" placeholder={"Login"} component={"input"}/>
       </div>
@@ -31,10 +29,10 @@ const Login = () => {
 
   const handleSubmit = (user) => {
     insteadServer.userLoggedIn(user);
-    
+
     const registerdUser = JSON.parse(localStorage.getItem('user'))
     if (registerdUser.email === user.email && registerdUser.password === user.password) {
-      
+
       history.push('/movie')
     }
   }
@@ -44,7 +42,7 @@ const Login = () => {
       <h1> My favorite cinema</h1>
       <LoginReduxForm onSubmit={handleSubmit}/>
     </div>
-    
+
   )
 }
 
