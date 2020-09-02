@@ -14,8 +14,10 @@ function App () {
         <Route exact path={"/movie"} component={Main}/>
         <Route path={"/"} component={Login} />
       </Switch>
+
     </div>
   );
 }
 
 export default withRouter(App);
+
