@@ -24,8 +24,10 @@ function App () {
         <PrivateRoute exact path={"/movie"} component={Main}/>
         <Route exact path={"/"} component={LoginPage}  />
       </Switch>
+
     </div>
   );
 }
 
 export default withRouter(App);
+
