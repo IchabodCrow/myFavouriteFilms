@@ -2,6 +2,7 @@ import React from "react";
 import { Form } from "react-final-form";
 import { Trans, useTranslation } from 'react-i18next'
 
+import i18n from '../../i18n'
 import {
   emailRegex,
   required,
@@ -10,7 +11,6 @@ import {
 import FieldWithLabel from "../UI/FieldWithLabel";
 
 const LoginForm = (props) => {
-  const { t } = useTranslation()  
   return (
     <Form
       onSubmit={props.handleSubmit}
@@ -20,15 +20,15 @@ const LoginForm = (props) => {
             <FieldWithLabel
               name="email"
               type="text"
-              placeholder={t("description.emailPlaceholder")}
-              labelText={t("description.email")}
+              placeholder={i18n.t("description.emailPlaceholder")}
+              labelText={i18n.t("description.email")}
               validate={composeValidators(required, emailRegex)}
             />
             <FieldWithLabel
               name="password"
               type="password"
-              placeholder={t("description.passwordPlaceholder")}
-              labelText={t("description.password")}
+              placeholder={i18n.t("description.passwordPlaceholder")}
+              labelText={i18n.t("description.password")}
               validate={composeValidators(required)}
             />
             <div className="md:flex md:items-center">

@@ -1,6 +1,7 @@
 import React, { Suspense } from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
 import { Trans, useTranslation } from 'react-i18next'
+import axios from 'axios'
 
 import Main from "./components/MainPage/main";
 import insteadServer from "./services/insteadServer";

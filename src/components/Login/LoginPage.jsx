@@ -3,13 +3,13 @@ import { withRouter, useHistory } from "react-router-dom";
 import { Trans, useTranslation } from 'react-i18next'
 import { FORM_ERROR } from 'final-form'
 
+import i18n from '../../i18n'
 import LoginForm from "./LoginForm";
 import checkUserCredentails from "../../services/checkUserCredentails";
 import insteadServer from "../../services/insteadServer";
 
 const LoginPage = () => {
   const history = useHistory();
-  const { t } = useTranslation()  
 
   const handleSubmit = (userValue) => {
     insteadServer.setToken(userValue);
@@ -17,7 +17,7 @@ const LoginPage = () => {
     if (token) {
       history.push("/movie");
     } else {
-      return { [FORM_ERROR]: `${t("validation.submitError")}` }
+      return { [FORM_ERROR]: `${i18n.t("validation.submitError")}` }
     }
     
   };
