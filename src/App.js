@@ -10,15 +10,6 @@ import LoginPage from "./components/Login/LoginPage";
 
 insteadServer.prepareInitialData();
 
-const queriesTMDB = () => {
-  const apiKey = "api_key=09f30eef2a2368938501ec982e6bd612"
-    axios.get(`https://api.themoviedb.org/3/genre/movie/list?${apiKey}`)
-      .then( res => console.log('Response', res.data.genres))
-}
-
-queriesTMDB()
-
-
 function App () {
   const { i18n } = useTranslation();
 
