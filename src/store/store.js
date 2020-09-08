@@ -10,7 +10,6 @@ raceLimit: 55,
 }) : compose;
 
 const reducers = combineReducers({
-    form: formReducer
 })
 
 const store = createStore(reducers, composeEnhancers(applyMiddleware(...middelewares)));

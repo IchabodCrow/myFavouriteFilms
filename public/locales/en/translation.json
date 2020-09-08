@@ -1,0 +1,15 @@
+{ 
+  "title": "My favorite cinema",
+  "description": {
+    "email": "Email",
+    "password": "Password",
+    "emailPlaceholder": "Enter email",
+    "passwordPlaceholder": "Enter password",
+    "signIn": "Sign in",
+  },
+   "validation": {
+    "require" : "Require field",
+    "IncorrectEmail": "Incorrect email",
+    "submitError": "Failed to login, check if your email and password are correct"
+  }
+}

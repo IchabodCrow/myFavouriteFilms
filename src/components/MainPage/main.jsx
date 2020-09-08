@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom'
 
 const Main = (props) => {
   return (
+    
     <div>
       Работает!!!!
     </div>

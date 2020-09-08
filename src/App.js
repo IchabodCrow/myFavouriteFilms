@@ -1,18 +1,28 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
-import Login from "./components/Login/LoginForm";
-import Main from "./components/Main/main";
+import { Trans, useTranslation } from 'react-i18next'
+
+import Main from "./components/MainPage/main";
 import insteadServer from "./services/insteadServer";
+import { PrivateRoute } from "./helpers/PrivateRoute";
+import LoginPage from "./components/Login/LoginPage";
 
 insteadServer.prepareInitialData();
 
 function App () {
-  
+  const { i18n } = useTranslation();
+
+  const changeLanguage = (lang) => {
+    i18n.changeLanguage(lang)
+  };
+
   return (
     <div className="App">
+      <button onClick={ () => changeLanguage('ru') }>Русский</button>
+      <button onClick={ () => changeLanguage('en') }>English</button>
       <Switch>
-        <Route exact path={"/movie"} component={Main}/>
-        <Route path={"/"} component={Login} />
+        <PrivateRoute exact path={"/movie"} component={Main}/>
+        <Route exact path={"/"} component={LoginPage}  />
       </Switch>
     </div>
   );
