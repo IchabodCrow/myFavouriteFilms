@@ -1,36 +1,29 @@
 import React from "react";
 import { withRouter, useHistory } from "react-router-dom";
-import { Trans, useTranslation } from 'react-i18next'
-import { FORM_ERROR } from 'final-form'
+import { FORM_ERROR } from "final-form";
+import { useTranslation } from "react-i18next";
 
-import i18n from '../../i18n'
 import LoginForm from "./LoginForm";
-import checkUserCredentails from "../../services/checkUserCredentails";
-import insteadServer from "../../services/insteadServer";
+import { setToken } from "../../services/insteadServer";
+import PageHeader from "../PageHeader/PageHeader";
 
 const LoginPage = () => {
   const history = useHistory();
+  const { t } = useTranslation();
 
   const handleSubmit = (userValue) => {
-    insteadServer.setToken(userValue);
+    setToken(userValue);
     const token = localStorage.getItem("token");
     if (token) {
       history.push("/movie");
     } else {
-      return { [FORM_ERROR]: `${i18n.t("validation.submitError")}` }
+      return { [FORM_ERROR]: `${t("validation.submitError")}` };
     }
-    
   };
 
   return (
     <div className="flex flex-col">
-      <div className="my-8 w-1/3 self-center">
-        <h1 className="font-bold text-4xl bg-purple-500 text-center text-white font-bold py-2 px-4 rounded ">
-          <Trans i18nKey="title">
-            My favorite cinema
-          </Trans>
-        </h1>
-      </div>
+      <PageHeader />
       <LoginForm handleSubmit={handleSubmit} />
     </div>
   );
