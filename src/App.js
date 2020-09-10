@@ -1,26 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Route, Switch, withRouter } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
+import Main from "./components/MainPage/main";
+import { prepareInitialData } from "./services/insteadServer";
+import { PrivateRoute } from "./helpers/PrivateRoute";
+import LoginPage from "./components/Login/LoginPage";
+
+prepareInitialData();
 
 function App() {
+  const { i18n } = useTranslation();
+
+  const changeLanguage = (lang) => {
+    i18n.changeLanguage(lang);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <div className="flex flex-row-reverse bg-purple-500 ">
+        <button
+          className="bg-purple-500 hover:bg-purple-400 text-white py-2 px-4 rounded"
+          onClick={() => changeLanguage("ru")}
         >
-          Learn React
-        </a>
-      </header>
+          Русский
+        </button>
+        <button
+          className="bg-purple-500 hover:bg-purple-400 text-white py-2 px-4 rounded"
+          onClick={() => changeLanguage("en")}
+        >
+          English
+        </button>
+      </div>
+
+      <Switch>
+        <PrivateRoute exact path={"/movie"} component={Main} />
+        <Route exact path={"/"} component={LoginPage} />
+      </Switch>
     </div>
   );
 }
 
-export default App;
+export default withRouter(App);

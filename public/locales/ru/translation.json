@@ -1,0 +1,15 @@
+{ 
+  "title": "Моё любимое кино",
+  "description": {
+    "email": "Почта",
+    "password": "Пароль",
+    "emailPlaceholder": "Введите электронную почту",
+    "passwordPlaceholder": "Введите пароль",
+    "signIn": "Войти"
+  },
+  "validation": {
+    "require" : "Поле обязательно для ввода",
+    "incorrectEmail": "Не корректная запись почты",
+    "submitError": "Не удалось войти, проверьте правильность ввода почты и пароля"
+  }
+}
