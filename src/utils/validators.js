@@ -5,7 +5,7 @@ export const emailRegex = (value) =>
     ? i18n.t("validation.incorrectEmail")
     : undefined;
 
-export const required = (value) => (value ? undefined : i18n.t("validation.require"));
+export const requiredField = (value) => (value ? undefined : i18n.t("validation.require"));
 
 export const composeValidators = (...validators) => (value) =>
   validators.reduce((error, validator) => error || validator(value), undefined);

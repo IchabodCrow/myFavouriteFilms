@@ -2,12 +2,6 @@ import React from "react";
 import { Form } from "react-final-form";
 import { useTranslation } from "react-i18next";
 
-import {
-  emailRegex,
-  required,
-  composeValidators,
-} from "../../utils/validators";
-
 import EmailField from "../UI/EmailField";
 import PasswordField from "../UI/PasswordField";
 import Action from "../UI/Action";
@@ -20,17 +14,15 @@ const LoginForm = (props) => {
       render={({ submitError, modifiedSinceLastSubmit, handleSubmit }) => (
         <div className="flex justify-center mr-8">
           <form onSubmit={handleSubmit} className="w-full max-w-sm">
-            <EmailField
-              name="email"
-              placeholder={t("description.emailPlaceholder")}
-              labelText={t("description.email")}
-              validate={composeValidators(required, emailRegex)}
+            <EmailField 
+              name="email" 
+              namespace="description" 
+              required={true} 
             />
             <PasswordField
               name="password"
-              placeholder={t("description.passwordPlaceholder")}
-              labelText={t("description.password")}
-              validate={composeValidators(required)}
+              namespace="description"
+              required={true}
             />
             <Action label={t("description.signIn")} />
             {submitError && (
