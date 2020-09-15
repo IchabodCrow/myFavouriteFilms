@@ -1,17 +1,20 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 
-import PageHeader from "../PageHeader/PageHeader";
-import BlockWithUserName from "../BlockWithUserName/BlockWithUserName";
+import CloudGenresContainer from "containers/CloudGenresContainer";
+import PageHeader from "components/PageHeader";
+import UserNameBlock from "components/UserNameBlock";
+import MovieListContainer from "../../containers/MovieListContainer";
 
-const Main = (props) => {
+const Main = () => {
   return (
-    <div>
+    <div className="m-3">
       <PageHeader />
-      <BlockWithUserName />
+      <UserNameBlock />
+      <CloudGenresContainer />
+      <MovieListContainer/>
     </div>
   );
-
 };
 
 export default withRouter(Main);
