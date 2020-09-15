@@ -6,6 +6,7 @@ import Main from "./components/MainPage/main";
 import { prepareInitialData } from "./services/insteadServer";
 import { PrivateRoute } from "./helpers/PrivateRoute";
 import LoginPage from "./components/Login/LoginPage";
+import { FavoriteMoviesPage } from "./components/FavoriteMoviesPage";
 
 prepareInitialData();
 
@@ -35,6 +36,7 @@ function App() {
 
       <Switch>
         <PrivateRoute exact path={"/movie"} component={Main} />
+        <PrivateRoute exact patch={"/favorite"} component={FavoriteMoviesPage} />
         <Route exact path={"/"} component={LoginPage} />
       </Switch>
     </div>

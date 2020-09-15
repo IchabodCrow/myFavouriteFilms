@@ -1,6 +1,9 @@
 import { createStore, compose, applyMiddleware, combineReducers } from "redux";
-import { reducer as formReducer } from 'redux-form'
 import thunk from 'redux-thunk'
+
+import cloudGenresReducer from 'reducers/cloudGenresReducer'
+import movieListReducer from 'reducers/movieListReducer'
+import selectedGenresIdReducer from 'reducers/selectedGenresIdReducer'
 
 const middelewares = [thunk]
 
@@ -10,6 +13,9 @@ raceLimit: 55,
 }) : compose;
 
 const reducers = combineReducers({
+  cloudGenresReducer,
+  movieListReducer,
+  selectedGenresIdReducer,
 })
 
 const store = createStore(reducers, composeEnhancers(applyMiddleware(...middelewares)));
