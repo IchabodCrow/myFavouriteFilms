@@ -11,6 +11,7 @@ const Main = (props) => {
       <BlockWithUserName />
     </div>
   );
+
 };
 
 export default withRouter(Main);
