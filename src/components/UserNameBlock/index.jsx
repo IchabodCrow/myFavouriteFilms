@@ -2,16 +2,17 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 
 import Action from "../UI/Action";
-import { user } from "../../services/user";
+import { logout, currentgUserName } from "../../services/user";
 import { useTranslation } from "react-i18next";
 
-const BlockWithUserName = () => {
-  const history = useHistory();
-  const userName = user.userName();
+const UserNameBlock = () => {
   const { t } = useTranslation()
+  const history = useHistory();
+  const userName = currentgUserName(t("mainPage.userName"));
+  
 
   const handleClick = () => {
-    user.logout();
+    logout();
     history.push("/");
   };
 
@@ -23,4 +24,4 @@ const BlockWithUserName = () => {
   );
 };
 
-export default BlockWithUserName;
+export default UserNameBlock;

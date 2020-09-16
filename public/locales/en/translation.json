@@ -14,6 +14,7 @@
     "submitError": "Failed to login, check if your email and password are correct"
   },
   "mainPage": {
-    "greeting": "Hello"
+    "greeting": "Hello",
+    "userName": "Stranger"
   }
 }

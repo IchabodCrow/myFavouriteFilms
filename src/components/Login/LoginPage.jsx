@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 
 import LoginForm from "./LoginForm";
 import { setToken } from "../../services/insteadServer";
-import PageHeader from "../PageHeader/PageHeader";
+import PageHeader from "../PageHeader";
 
 const LoginPage = () => {
   const history = useHistory();

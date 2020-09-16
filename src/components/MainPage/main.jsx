@@ -1,17 +1,16 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 
-import PageHeader from "../PageHeader/PageHeader";
-import BlockWithUserName from "../BlockWithUserName/BlockWithUserName";
+import PageHeader from "../PageHeader";
+import UserNameBlock from "../UserNameBlock";
 
-const Main = (props) => {
+const Main = () => {
   return (
     <div>
       <PageHeader />
-      <BlockWithUserName />
+      <UserNameBlock />
     </div>
   );
-
 };
 
 export default withRouter(Main);
