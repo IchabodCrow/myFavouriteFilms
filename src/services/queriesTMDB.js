@@ -4,7 +4,7 @@ const url = "https://api.themoviedb.org/3/";
 export const movieGenres = () => {
   return fetch(`${url}genre/movie/list?api_key=${apiKey}`)
     .then(res => res.json())
-    .then(data => console.log(data))
+    .then(data => data)
     .catch(err => console.log(err));
 };
 

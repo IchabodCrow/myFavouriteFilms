@@ -1,6 +1,7 @@
 import { createStore, compose, applyMiddleware, combineReducers } from "redux";
-import { reducer as formReducer } from 'redux-form'
 import thunk from 'redux-thunk'
+
+import cloudGenresReducer from '../reducers/cloudGenresReducer'
 
 const middelewares = [thunk]
 
@@ -10,6 +11,7 @@ raceLimit: 55,
 }) : compose;
 
 const reducers = combineReducers({
+  cloudGenresReducer,
 })
 
 const store = createStore(reducers, composeEnhancers(applyMiddleware(...middelewares)));
