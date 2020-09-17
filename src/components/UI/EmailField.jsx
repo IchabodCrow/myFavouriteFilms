@@ -6,7 +6,7 @@ import {
   composeValidators,
   requiredField,
   emailRegex,
-} from "../../utils/validators";
+} from "utils/validators";
 
 const EmailField = ({ name, namespace, required }) => {
   const { t } = useTranslation();
