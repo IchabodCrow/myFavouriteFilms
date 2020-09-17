@@ -1,8 +1,8 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
-import Action from "../UI/Action";
-import { logout, currentgUserName } from "../../services/user";
+import Action from "components/UI/Action";
+import { logout, currentgUserName } from "services/user";
 import { useTranslation } from "react-i18next";
 
 const UserNameBlock = () => {

@@ -1,7 +1,7 @@
 import React from "react";
 import { Field } from "react-final-form";
 import { useTranslation } from "react-i18next";
-import { requiredField } from "../../utils/validators";
+import { requiredField } from "utils/validators";
 
 const PasswordField = ({ name, namespace, required }) => {
   const { t } = useTranslation();

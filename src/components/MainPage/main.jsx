@@ -1,8 +1,8 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 
-import PageHeader from "../PageHeader";
-import UserNameBlock from "../UserNameBlock";
+import PageHeader from "components/PageHeader";
+import UserNameBlock from "components/UserNameBlock";
 
 const Main = () => {
   return (
