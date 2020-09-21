@@ -2,9 +2,9 @@ import React from "react";
 import { Form } from "react-final-form";
 import { useTranslation } from "react-i18next";
 
-import EmailField from "../UI/EmailField";
-import PasswordField from "../UI/PasswordField";
-import Action from "../UI/Action";
+import EmailField from "components/UI/EmailField";
+import PasswordField from "components/UI/PasswordField";
+import Action from "components/UI/Action";
 
 const LoginForm = (props) => {
   const { t } = useTranslation();
