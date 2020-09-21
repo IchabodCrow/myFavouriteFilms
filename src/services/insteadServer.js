@@ -13,8 +13,10 @@ export const prepareInitialData = () => {
 
 export const setToken = (user) => {
   const checkUserRegister = checkUserCredentials(user);
+  const { password, ...fields} = user;
   if (checkUserRegister !== -1) {
     const authToken = "hi_i_am_a_temporary_token_for_setting_up_routing";
     localStorage.setItem("token", authToken);
+    localStorage.setItem("userInSession", JSON.stringify(fields));
   }
 };

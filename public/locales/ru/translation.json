@@ -5,11 +5,16 @@
     "password": "Пароль",
     "emailPlaceholder": "Введите электронную почту",
     "passwordPlaceholder": "Введите пароль",
-    "signIn": "Войти"
+    "signIn": "Войти",
+    "logout": "Выйти"
   },
   "validation": {
     "require" : "Поле обязательно для ввода",
     "incorrectEmail": "Не корректная запись почты",
     "submitError": "Не удалось войти, проверьте правильность ввода почты и пароля"
+  }, 
+  "mainPage": {
+    "greeting": "Привет",
+    "userName": "Незнакомец"
   }
 }

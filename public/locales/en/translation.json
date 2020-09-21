@@ -5,11 +5,16 @@
     "password": "Password",
     "emailPlaceholder": "Enter email",
     "passwordPlaceholder": "Enter password",
-    "signIn": "Sign in"
+    "signIn": "Sign in",
+    "logout": "Logout"
   },
   "validation": {
     "require" : "Require field",
     "incorrectEmail": "Incorrect email",
     "submitError": "Failed to login, check if your email and password are correct"
+  },
+  "mainPage": {
+    "greeting": "Hello",
+    "userName": "Stranger"
   }
 }

@@ -4,8 +4,8 @@ import { FORM_ERROR } from "final-form";
 import { useTranslation } from "react-i18next";
 
 import LoginForm from "./LoginForm";
-import { setToken } from "../../services/insteadServer";
-import PageHeader from "../PageHeader/PageHeader";
+import { setToken } from "services/insteadServer";
+import PageHeader from "components/PageHeader";
 
 const LoginPage = () => {
   const history = useHistory();
