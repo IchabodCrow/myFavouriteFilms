@@ -1,8 +1,8 @@
-import { GENRES_LIST } from "../actions/genresListAction"
+import { GENRES_LIST } from "../actions/genresListAction";
 
 const InitialState = {
-  genres: []
-}
+  genres: [],
+};
 
 const cloudGenresReducer = (state = InitialState, action) => {
   switch (action.type) {

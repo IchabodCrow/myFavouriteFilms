@@ -1,22 +1,22 @@
-import { connect } from 'react-redux'
-import CloudGenres from '../../components/CloudGenres'
-import { genresList } from '../../actions/genresListAction'
+import { connect } from "react-redux";
+import CloudGenres from "../../components/CloudGenres";
+import { genresList } from "../../actions/genresListAction";
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    genres: state.cloudGenresReducer.genres
-  }
-}
+    genres: state.cloudGenresReducer.genres,
+  };
+};
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    genresList: () => dispatch(genresList(null))
-  }
-}
+    genresList: () => dispatch(genresList(null)),
+  };
+};
 
 const CloudGenresContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(CloudGenres)
+)(CloudGenres);
 
-export default CloudGenresContainer
+export default CloudGenresContainer;

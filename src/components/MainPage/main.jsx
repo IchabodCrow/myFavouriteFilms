@@ -10,7 +10,7 @@ const Main = () => {
     <div>
       <PageHeader />
       <UserNameBlock />
-      <CloudGenresContainer/>
+      <CloudGenresContainer />
     </div>
   );
 };
