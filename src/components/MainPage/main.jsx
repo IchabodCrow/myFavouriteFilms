@@ -5,7 +5,6 @@ import CloudGenresContainer from "containers/CloudGenresContainer/indes";
 import PageHeader from "components/PageHeader";
 import UserNameBlock from "components/UserNameBlock";
 
-
 const Main = () => {
   return (
     <div>

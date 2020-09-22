@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import CloudGenres from "../../components/CloudGenres";
+import { CloudGenres } from "../../components/CloudGenres";
 import { genresList } from "../../actions/genresListAction";
 
 const mapStateToProps = (state) => {
