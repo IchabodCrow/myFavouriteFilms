@@ -1,21 +1,26 @@
-import React, { useState } from "react";
+import React from "react";
+import className from "classnames";
 
-export const GenresButton = ({ genre, handleClick }) => {
-  const [genreSelected, setGenreSelected] = useState({});
-
-  const toggle = () => {
-    setGenreSelected({
-      selected: !genreSelected.selected,
-    });
-    handleClick(genre.id, genreSelected.selected);
-  };
+export const GenresButton = ({ genre, handleClick, selected }) => {
+  const allClass = className(
+    "bg-yellow-300",
+    { "border-green-400": selected },
+    "border-4",
+    "cursor-pointer",
+    "bg-opacity-50",
+    "w-auto" < "h-auto",
+    "text-center",
+    "mx-3",
+    "my-3",
+    "p-2",
+    "rounded-lg",
+    "capitalize"
+  );
   return (
     <div
-      className={`bg-yellow-300 ${
-        genreSelected.selected ? "border-green-400" : ""
-      } border-4 cursor-pointer bg-opacity-50 w-auto h-auto text-center mx-3 my-3 p-2 rounded-lg capitalize`}
+      className={allClass}
       id={genre.id}
-      onClick={toggle}
+      onClick={() => handleClick(genre.id, selected)}
     >
       {genre.name}
     </div>
