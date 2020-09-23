@@ -9,13 +9,15 @@ export const CloudGenres = (props) => {
     props.genresList();
   }, []);
 
-  const handleClick = (genre, selected) => {
+  useEffect( () => {
+    localStorage.setItem("movieGenres", [genresState])
+  })
+
+  const handleClick = (genreId, selected) => {
     !selected
-      ? setGenresState([...genresState, genre])
-      : setGenresState(...[genresState.filter((movie) => movie !== genre)]);
+      ? setGenresState([...genresState, genreId])
+      : setGenresState(...[genresState.filter((movie) => movie !== genreId)]);
   };
-  
-  localStorage.setItem('movieGenres', genresState);
 
   return (
     <div className="flex flex-row flex-wrap justify-center bg-purple-100 my-5">
@@ -23,6 +25,7 @@ export const CloudGenres = (props) => {
         <GenresButton
           genre={genre}
           key={genre.name}
+          selected={genresState.includes(genre.id)}
           handleClick={handleClick}
         />
       ))}
