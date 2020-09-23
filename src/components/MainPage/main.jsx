@@ -1,9 +1,10 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 
-import CloudGenresContainer from "containers/CloudGenresContainer/indes";
+import CloudGenresContainer from "containers/CloudGenresContainer";
 import PageHeader from "components/PageHeader";
 import UserNameBlock from "components/UserNameBlock";
+import MovieListContainer from "../../containers/MovieListContainer";
 
 const Main = () => {
   return (
@@ -11,6 +12,7 @@ const Main = () => {
       <PageHeader />
       <UserNameBlock />
       <CloudGenresContainer />
+      <MovieListContainer/>
     </div>
   );
 };

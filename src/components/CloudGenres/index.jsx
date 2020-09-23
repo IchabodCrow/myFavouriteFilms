@@ -13,8 +13,9 @@ export const CloudGenres = (props) => {
     !selected
       ? setGenresState([...genresState, genre])
       : setGenresState(...[genresState.filter((movie) => movie !== genre)]);
-      localStorage.setItem('movieGenres', genresState);
   };
+  
+  localStorage.setItem('movieGenres', genresState);
 
   return (
     <div className="flex flex-row flex-wrap justify-center bg-purple-100 my-5">
