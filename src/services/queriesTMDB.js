@@ -2,9 +2,9 @@ const apiKey = process.env.REACT_APP_API_KEY ;
 const url = "https://api.themoviedb.org/3/";
 
 export const movieGenres = () => {
-  return fetch(`${url}genre/movie/list?api_key=${apiKey}`)
+  return fetch(`${url}genre/movie/list?api_key=${apiKey}&language=${localStorage.getItem('i18nextLng')}`)
     .then(res => res.json())
-    .then(data => console.log(data))
+    .then(data => data)
     .catch(err => console.log(err));
 };
 

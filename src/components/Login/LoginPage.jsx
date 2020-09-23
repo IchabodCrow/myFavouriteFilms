@@ -7,6 +7,7 @@ import LoginForm from "./LoginForm";
 import { setToken } from "services/insteadServer";
 import PageHeader from "components/PageHeader";
 
+
 const LoginPage = () => {
   const history = useHistory();
   const { t } = useTranslation();
