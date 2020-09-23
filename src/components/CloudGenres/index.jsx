@@ -13,6 +13,7 @@ export const CloudGenres = (props) => {
     !selected
       ? setGenresState([...genresState, genre])
       : setGenresState(...[genresState.filter((movie) => movie !== genre)]);
+      localStorage.setItem('movieGenres', genresState);
   };
 
   return (
