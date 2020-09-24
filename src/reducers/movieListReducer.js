@@ -1,4 +1,4 @@
-const { MOVIE_LIST } = require("../actions/actionsConst");
+import {MOVIE_LIST} from "actions/actionsConst"
 
 const InitialState = {
   results: [],

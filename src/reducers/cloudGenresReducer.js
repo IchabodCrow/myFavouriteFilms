@@ -1,4 +1,4 @@
-import { GENRES_LIST } from "../actions/actionsConst";
+import { GENRES_LIST} from "actions/actionsConst";
 
 const InitialState = {
   genres: [],
@@ -7,7 +7,7 @@ const InitialState = {
 const cloudGenresReducer = (state = InitialState, action) => {
   switch (action.type) {
     case GENRES_LIST:
-      return action.payload;
+      return {...action.payload};
     default:
       return state;
   }

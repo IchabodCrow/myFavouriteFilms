@@ -3,21 +3,16 @@ import { ShowMoviesBlocks } from "./ShowMoviesBlocks";
 import { ShowMoviesList } from "./ShowMoviesList";
 
 export const MovieList = (props) => {
-  const genreArr = localStorage.getItem("movieGenres").split(",");
+  const genresArr = props.genresId
 
   useEffect(() => {
-    props.moviesList({genreArr: ['878'], page: '1'});
-  }, []);
-
+    props.moviesList({genresArr: genresArr});
+  }, [genresArr]);
+  
   return (
     <div>
-      {props.movies.results.map( (movie, index) => {
-        return (
-        <div key={index}>{movie.title}</div>
-        )
-      })}
-      <ShowMoviesBlocks />
-      <ShowMoviesList />
+      {/* <ShowMoviesBlocks movies={props.movies} /> */}
+      <ShowMoviesList movies={props.movies} />
     </div>
   );
 };
