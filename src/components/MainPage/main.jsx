@@ -8,7 +8,7 @@ import MovieListContainer from "../../containers/MovieListContainer";
 
 const Main = () => {
   return (
-    <div>
+    <div className="m-3">
       <PageHeader />
       <UserNameBlock />
       <CloudGenresContainer />

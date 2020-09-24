@@ -1,10 +1,11 @@
-const { connect } = require("react-redux");
-const { movieList } = require("../../actions/movieListAction");
-const { MovieList } = require("../../components/MovieList");
+import { connect } from "react-redux";
+import { movieList } from "actions/movieListAction";
+import { MovieList } from "components/MovieList";
 
 const mapStateToProps = (state) => {
   return {
     movies: state.movieListReducer,
+    genresId: state.selectedGenresIdReducer,
   };
 };
 
@@ -17,6 +18,6 @@ const mapDispatchToProps = (dispatch) => {
 const MovieListContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(MovieList)
+)(MovieList);
 
-export default MovieListContainer
+export default MovieListContainer;
