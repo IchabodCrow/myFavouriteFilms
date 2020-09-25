@@ -1,4 +1,3 @@
-import { movieGenres } from "../services/queriesTMDB";
 import { SELECTED_GENRES_ID } from "./actionsConst";
 
 export const selectedGenresId = (genresId) => {

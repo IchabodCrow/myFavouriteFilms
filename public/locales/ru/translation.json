@@ -16,5 +16,8 @@
   "mainPage": {
     "greeting": "Привет",
     "userName": "Незнакомец"
+  },
+  "movieCard": {
+    "voteAverage": "Рейтинг"
   }
 }

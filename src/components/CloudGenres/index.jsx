@@ -9,7 +9,7 @@ export const CloudGenres = (props) => {
   useEffect(() => {
     props.genresList();
     
-  }, []);
+  }, [props]);
 
   useEffect( () => {
     localStorage.setItem("movieGenres", [genresState])
