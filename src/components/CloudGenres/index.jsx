@@ -3,17 +3,16 @@ import React, { useEffect, useState } from "react";
 import { GenresButton } from "./GenresButton";
 
 export const CloudGenres = (props) => {
-  
+
   const [genresState, setGenresState] = useState([]);
- 
+
   useEffect(() => {
     props.genresList();
-    
-  }, [props]);
+  }, []);
 
   useEffect( () => {
     localStorage.setItem("movieGenres", [genresState])
-    props.genresIdArr(genresState)
+
   })
 
   const handleClick = (genreId, selected) => {
