@@ -16,5 +16,8 @@
   "mainPage": {
     "greeting": "Hello",
     "userName": "Stranger"
+  },
+  "movieCard": {
+    "voteAverage": "Vote average"
   }
 }
