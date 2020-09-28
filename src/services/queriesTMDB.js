@@ -3,10 +3,10 @@ const url = "https://api.themoviedb.org/3/";
 const lang = localStorage.getItem("i18nextLng");
 
 export const movieGenres = () => {
-  return fetch(`${url}genre/movie/list?api_key=${apiKey}&language=${lang}`)
-    .then((res) => res.json())
-    .then((data) => data)
-    .catch((err) => console.log(err));
+  return fetch(`${url}genre/movie/list?api_key=${apiKey}&language=${localStorage.getItem('i18nextLng')}`)
+    .then(res => res.json())
+    .then(data => data)
+    .catch(err => console.log(err));
 };
 
 export const movieListWithFilters = ({

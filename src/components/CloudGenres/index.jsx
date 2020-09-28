@@ -7,8 +7,7 @@ export const CloudGenres = (props) => {
   const [genresState, setGenresState] = useState([]);
  
   useEffect(() => {
-    props.genresList();
-    
+    props.genresList();    
   }, [props]);
 
   useEffect( () => {
