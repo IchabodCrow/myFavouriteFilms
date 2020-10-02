@@ -20,4 +20,4 @@ const reducers = combineReducers({
 
 const store = createStore(reducers, composeEnhancers(applyMiddleware(...middelewares)));
 
-export default store
+export default store;
