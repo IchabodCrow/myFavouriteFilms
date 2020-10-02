@@ -16,5 +16,14 @@
   "mainPage": {
     "greeting": "Привет",
     "userName": "Незнакомец"
+  },
+  "movieCard": {
+    "voteAverage": "Рейтинг"
+  },
+  "UI": {
+    "blockButtonAlt": "Блочный вид",
+    "listButtonAlt": "Список",
+    "checkButton": "Отметить",
+    "cancelButton": "Убрать отметку"
   }
 }

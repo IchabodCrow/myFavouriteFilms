@@ -16,5 +16,14 @@
   "mainPage": {
     "greeting": "Hello",
     "userName": "Stranger"
+  },
+  "movieCard": {
+    "voteAverage": "Vote average"
+  },
+  "UI": {
+    "blockButtonAlt": "Block view",
+    "listButtonAlt": "List view",
+    "checkButton": "Check",
+    "cancelButton": "Cancel"
   }
 }
