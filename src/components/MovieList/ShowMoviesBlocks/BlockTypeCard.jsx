@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import className from "classnames";
 
 export const BlockTypeCard = ({ state, movie }) => {
+  const imgUrl = "https://image.tmdb.org/t/p/w300";
   const { t } = useTranslation();
   const styleForMarkAsViewed = className("flex flex-row p-8", {
     "opacity-50": state.findIndex((id) => id === movie.id) !== -1,
@@ -12,8 +13,8 @@ export const BlockTypeCard = ({ state, movie }) => {
       <div className="items-center justify-center shadow-xl rounded-lg">
         <img
           className="bg-gray-200 h-68 m-auto rounded-t-lg "
-          src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
-          alt="Block"
+          src={`${imgUrl + movie.poster_path}`}
+          alt={movie.title}
         />
         <div className="bg-white m-auto rounded-b-lg px-8">
           <div className="pt-8 pb-8">

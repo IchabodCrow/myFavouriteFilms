@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import className from "classnames";
 
 export const ListViewCard = ({ state, movie }) => {
+  const imgUrl = "https://image.tmdb.org/t/p/w200";
   const { t } = useTranslation();
   const styleForMarkAsViewed = className(
     "flex lg:max-w-full max-w-sm w-/4 m-10 shadow-xl rounded-lg",
@@ -12,8 +13,8 @@ export const ListViewCard = ({ state, movie }) => {
     <div className={styleForMarkAsViewed} key={movie.title}>
       <img
         className="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden "
-        src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
-        alt="List"
+        src={`${imgUrl + movie.poster_path}`}
+        alt={movie.title}
       />
       <div
         className={

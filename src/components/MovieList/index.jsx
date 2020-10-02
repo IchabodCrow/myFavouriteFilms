@@ -23,12 +23,11 @@ export const MovieList = ({ movies, genresId, moviesList }) => {
     history.push("/favorite");
   };
   const markAsViewed = ({ selected, movieId }) => {
-    console.log(selected);
     !selected
       ? setStateMark([...stateMark, movieId])
       : setStateMark(...[stateMark.filter((movie) => movie !== movieId)]);
   };
-  
+
   return (
     <div>
       <div className="flex flex-row justify-end">

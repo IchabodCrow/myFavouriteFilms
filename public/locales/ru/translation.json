@@ -16,11 +16,14 @@
   "mainPage": {
     "greeting": "Привет",
     "userName": "Незнакомец"
-<<<<<<< HEAD
   },
   "movieCard": {
     "voteAverage": "Рейтинг"
-=======
->>>>>>> 8e77b00... Red block (#5)
+  },
+  "UI": {
+    "blockButtonAlt": "Блочный вид",
+    "listButtonAlt": "Список",
+    "checkButton": "Отметить",
+    "cancelButton": "Убрать отметку"
   }
 }
