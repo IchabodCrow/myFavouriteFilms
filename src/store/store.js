@@ -15,9 +15,9 @@ raceLimit: 55,
 const reducers = combineReducers({
   cloudGenresReducer,
   movieListReducer,
-  selectedGenresIdReducer
+  selectedGenresIdReducer,
 })
 
 const store = createStore(reducers, composeEnhancers(applyMiddleware(...middelewares)));
 
-export default store;
+export default store

@@ -10,7 +10,7 @@ export const BlockTypeCard = ({ state, movie }) => {
   });
   return (
     <div className={styleForMarkAsViewed} key={movie.title}>
-      <div className="items-center justify-center shadow-xl rounded-lg">
+      <div className="items-center p-6 justify-center shadow-xl rounded-lg">
         <img
           className="bg-gray-200 h-68 m-auto rounded-t-lg "
           src={`${imgUrl + movie.poster_path}`}

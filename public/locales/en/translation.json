@@ -18,7 +18,8 @@
     "userName": "Stranger"
   },
   "movieCard": {
-    "voteAverage": "Vote average"
+    "voteAverage": "Vote average:",
+    "year": "Year:"
   },
   "UI": {
     "blockButtonAlt": "Block view",

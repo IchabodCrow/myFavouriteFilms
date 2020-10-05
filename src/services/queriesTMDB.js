@@ -12,10 +12,10 @@ export const movieGenres = () => {
 export const movieListWithFilters = ({
   year = "",
   rating = "",
-  genresArr = [],
+  genres = [],
   page,
 }) => {
-  const genre = genresArr.join();
+  const genre = genres.join();
   const genreUrl = `with_genres=${genre}`;
   const ratingUrl = `vote_average.gte=${rating}`;
   const yearUrl = `year=${year}`;

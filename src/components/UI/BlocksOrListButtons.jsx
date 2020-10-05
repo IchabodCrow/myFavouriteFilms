@@ -6,8 +6,8 @@ import list from "resources/equal.png";
 import { useTranslation } from "react-i18next";
 
 export const BlocksOrListButtons = ({ view, onClick }) => {
-  const activeBlock = classNames({ "opacity-50": view });
-  const activeList = classNames({ "opacity-50": !view });
+  const activeBlock = classNames("focus:outline-none", { "opacity-50": view });
+  const activeList = classNames("focus:outline-none", { "opacity-50": !view });
   const { t } = useTranslation()
 
   return (

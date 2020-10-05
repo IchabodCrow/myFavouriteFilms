@@ -7,7 +7,6 @@ import { selectedGenresId } from "actions/selectedGenresIdAction";
 const mapStateToProps = (state) => {
   return {
     genres: state.cloudGenresReducer.genres,
-    genresId: state.cloudGenresReducer.genresId,
   };
 };
 

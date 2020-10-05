@@ -1,4 +1,4 @@
-import { movieListWithFilters } from "../services/queriesTMDB";
+import { movieListWithFilters } from "services/queriesTMDB";
 import { MOVIE_LIST } from "./actionsConst";
 
 export const movieList = (genres) => {

@@ -18,7 +18,8 @@
     "userName": "Незнакомец"
   },
   "movieCard": {
-    "voteAverage": "Рейтинг"
+    "voteAverage": "Рейтинг: ",
+    "year": "Год выпуска: "
   },
   "UI": {
     "blockButtonAlt": "Блочный вид",
