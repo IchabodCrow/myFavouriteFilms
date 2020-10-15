@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import Slider from '@bit/altima-assurances.altima-ui-test.ui.slider';
+import { Slider } from 'react-rainbow-components'
 
 import PageHeader from 'components/PageHeader'
 import CloudGenresContainer from "containers/CloudGenresContainer"
@@ -22,16 +22,10 @@ export const FavoriteMoviesPage = () => {
     });
   };
   const getDataFiltres = (e) => {
-      const rating = e;
-    e.target
-      ? setFiltresState({
-          ...filtresState,
-          [e.target.name]: e.target.value,
-        })
-      : setFiltresState({
-          ...filtresState,
-          rating,
-        });
+    setFiltresState({
+        ...filtresState,
+        [e.target.name]: e.target.value,
+    })
   };
 
   return (
@@ -45,9 +39,9 @@ export const FavoriteMoviesPage = () => {
           </div>
           <Slider
             className={"w-48"}
-            min={0}
             max={10}
-            defaultValue={5}
+            name="rating"
+            value={filtresState.rating}
             onChange={getDataFiltres}
           />
         </div>
