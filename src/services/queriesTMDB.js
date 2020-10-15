@@ -1,4 +1,4 @@
-const apiKey = "09f30eef2a2368938501ec982e6bd612";
+const apiKey = process.env.REACT_APP_API_KEY;
 const url = "https://api.themoviedb.org/3/";
 const lang = localStorage.getItem("i18nextLng");
 
