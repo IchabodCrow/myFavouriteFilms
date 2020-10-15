@@ -4,8 +4,6 @@
   "private": true,
   "dependencies": {
     "@babel/core": "7.9.0",
-    "@bit/altima-assurances.altima-ui-test.ui.slider": "0.0.5",
-    "@bit/nexxtway.react-rainbow.slider": "^1.10.0",
     "@svgr/webpack": "4.3.3",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -60,6 +58,7 @@
     "react-dom": "^16.13.1",
     "react-final-form": "^6.5.1",
     "react-i18next": "^11.7.2",
+    "react-rainbow-components": "^1.18.1",
     "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
     "redux": "^4.0.5",
@@ -103,7 +102,8 @@
   },
   "devDependencies": {
     "autoprefixer": "^9.8.6",
-    "postcss-cli": "^7.1.2"
+    "postcss-cli": "^7.1.2",
+    "ws": "3.3.2"
   },
   "main": "index.js",
   "repository": "https://github.com/IchabodCrow/myFavouriteFilms.git",
@@ -168,5 +168,8 @@
     "env": {},
     "componentsDefaultDirectory": "components/{name}",
     "packageManager": "npm"
+  },
+  "browser": {
+    "http": false
   }
 }
