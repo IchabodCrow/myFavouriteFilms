@@ -12,8 +12,8 @@ import login from "../../mutation/login";
 const LoginPage = () => {
   const history = useHistory();
   const { t } = useTranslation();
-  const [data, {loading, error}] = useMutation(login, {
-    onCompleted(data) {
+  const [data] = useMutation(login, {
+    onCompleted(data){
       localStorage.setItem('token', data.login.token)
       if(data.login.token){
         history.push("/movie");
@@ -25,7 +25,7 @@ const LoginPage = () => {
   
   const handleSubmit = (userValue) => {
     data({
-      variables: userValue,
+      variables: userValue
     });
   };
 
