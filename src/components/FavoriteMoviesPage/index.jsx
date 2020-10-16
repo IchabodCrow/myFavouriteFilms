@@ -7,8 +7,9 @@ import { BlocksOrListButtons } from "components/UI/BlocksOrListButtons"
 import { SelectYear } from "components/UI/SelectYear";
 import MovieListContainer from "containers/MovieListContainer";
 import { useTranslation } from "react-i18next";
+import { withRouter } from "react-router-dom"
 
-export const FavoriteMoviesPage = () => {
+const FavoriteMoviesPage = () => {
   const { t } = useTranslation();
   const [stateView, setStateView] = useState({ view: true });
   const [filtresState, setFiltresState] = useState({
@@ -57,3 +58,5 @@ export const FavoriteMoviesPage = () => {
     </div>
   );
 }
+
+export default withRouter(FavoriteMoviesPage)

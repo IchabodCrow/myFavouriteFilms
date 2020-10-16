@@ -4,22 +4,29 @@ import { FORM_ERROR } from "final-form";
 import { useTranslation } from "react-i18next";
 
 import LoginForm from "./LoginForm";
-import { setToken } from "services/insteadServer";
 import PageHeader from "components/PageHeader";
+import { useMutation } from "@apollo/client";
+import login from "../../mutation/login";
 
 
 const LoginPage = () => {
   const history = useHistory();
   const { t } = useTranslation();
-
-  const handleSubmit = (userValue) => {
-    setToken(userValue);
-    const token = localStorage.getItem("token");
-    if (token) {
-      history.push("/movie");
-    } else {
-      return { [FORM_ERROR]: `${t("validation.submitError")}` };
+  const [data, {loading, error}] = useMutation(login, {
+    onCompleted(data) {
+      localStorage.setItem('token', data.login.token)
+      if(data.login.token){
+        history.push("/movie");
+      } else {
+        return { [FORM_ERROR]: `${t("validation.submitError")}`};
+      }
     }
+  })
+  
+  const handleSubmit = (userValue) => {
+    data({
+      variables: userValue,
+    });
   };
 
   return (
