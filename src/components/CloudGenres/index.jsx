@@ -1,23 +1,25 @@
 import { useMutation } from "@apollo/react-hooks";
 import React, { useEffect, useState } from "react";
 import addFiltres from "../../mutation/addFiltres";
+import deleteFiltres from "../../mutation/deleteFiltres";
 
 import { GenresButton } from "./GenresButton";
 
 export const CloudGenres = (props) => {
   const [genresState, setGenresState] = useState([]);
-  const genres = genresState.join()
-  
-  const [addGenres] = useMutation(addFiltres, {
-    variables: {
-      genres: genres
-    },
+  const [genreFiltresId, setGenreFiltresId] = useState({
+    filterId: ""
+  })
+   const [addGenres] = useMutation(addFiltres, {
     onCompleted(addGenres){
-      console.log('addGenres: ', addGenres)
+      setGenreFiltresId({
+        filterId: addGenres.addFiltres
+      })
     }
   });
+  const [deleteGenres] = useMutation(deleteFiltres)
   useEffect(() => {
-    props.genresList();    
+    props.genresList();
   }, [props]);
 
   useEffect( () => {
@@ -26,10 +28,13 @@ export const CloudGenres = (props) => {
   }, [props, genresState])
 
   const handleClick = (genreId, selected) => {
-    addGenres()
+  console.log(typeof genreId)
+    !selected 
+      ? addGenres({ variables: { year: "", rating: "", genres: genreId + ""}})
+      : deleteGenres({variables: {id: genreFiltresId.filterId}})
     !selected
-      ? setGenresState([...genresState, genreId])
-      : setGenresState(...[genresState.filter((movie) => movie !== genreId)]);
+      ? setGenresState([...genresState, genreId]) 
+      : setGenresState(...[genresState.filter((movie) => movie !== genreId)]) 
   };
 
   return (
