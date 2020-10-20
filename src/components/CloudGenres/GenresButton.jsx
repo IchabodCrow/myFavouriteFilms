@@ -20,7 +20,7 @@ export const GenresButton = ({ genre, handleClick, selected }) => {
     <div
       className={allClass}
       id={genre.id}
-      onClick={() => handleClick(genre.id, selected)}
+      onClick={() => handleClick(genre, selected)}
     >
       {genre.name}
     </div>

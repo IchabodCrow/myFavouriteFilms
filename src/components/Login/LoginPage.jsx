@@ -12,7 +12,7 @@ import login from "../../mutation/login";
 const LoginPage = () => {
   const history = useHistory();
   const { t } = useTranslation();
-  const [data] = useMutation(login, {
+  const [data, {error, loading}] = useMutation(login, {
     onCompleted(data){
       localStorage.setItem('token', data.login.token)
       if(data.login.token){
@@ -22,6 +22,9 @@ const LoginPage = () => {
       }
     }
   })
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error :(</p>;
   
   const handleSubmit = (userValue) => {
     data({
