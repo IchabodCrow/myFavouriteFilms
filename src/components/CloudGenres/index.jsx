@@ -1,24 +1,28 @@
-import { useMutation } from "@apollo/react-hooks";
+import { useMutation, useQuery } from "@apollo/react-hooks";
 import React, { useEffect, useState } from "react";
 import updateFiltres from "../../mutation/updateFiltres";
 import deleteFiltres from "../../mutation/deleteFiltres";
 
 import { GenresButton } from "./GenresButton";
+import movies from "../../queries/genresList";
 
 export const CloudGenres = (props) => {
   const [genresState, setGenresState] = useState([]);
-
+  const {loading, error, data} = useQuery(movies)
+  
   const [addGenres] = useMutation(updateFiltres);
   const [deleteGenres] = useMutation(deleteFiltres);
 
   useEffect(() => {
     props.genresList();
+    console.log(data)
   }, [props]);
 
   useEffect(() => {
     localStorage.setItem("movieGenres", [genresState]);
     props.genresIdArr(genresState);
-  }, [props, genresState]);
+    console.log(data)
+  }, [props, genresState, data]);
 
   const handleClick = (genre, selected) => {
     selected
@@ -30,7 +34,7 @@ export const CloudGenres = (props) => {
         })
       : addGenres({
           variables: {
-            year: null,
+            year: "2010",
             rating: null,
             genre: { name: genre.name, genreId: genre.id },
           },
