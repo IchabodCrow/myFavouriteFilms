@@ -1,44 +1,35 @@
 import { useMutation, useQuery } from "@apollo/react-hooks";
 import React, { useEffect, useState } from "react";
-import updateFiltres from "../../mutation/updateFiltres";
-import deleteFiltres from "../../mutation/deleteFiltres";
 
+import deleteFiltres from "mutation/deleteFiltres";
 import { GenresButton } from "./GenresButton";
-import movies from "../../queries/genresList";
+import movies from "queries/genresList";
 
 export const CloudGenres = (props) => {
   const [genresState, setGenresState] = useState([]);
-  const {loading, error, data} = useQuery(movies)
-  
-  const [addGenres] = useMutation(updateFiltres);
   const [deleteGenres] = useMutation(deleteFiltres);
+  const { loading, error, data } = useQuery(movies);
 
   useEffect(() => {
     props.genresList();
-    console.log(data)
   }, [props]);
 
   useEffect(() => {
     localStorage.setItem("movieGenres", [genresState]);
     props.genresIdArr(genresState);
-    console.log(data)
   }, [props, genresState, data]);
 
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error :(</p>;
+
   const handleClick = (genre, selected) => {
-    selected
-      ? deleteGenres({
-          variables: {
-            id: genresState.filter((id) => id === genre.id).join(),
-            filter: "cloudGenres",
-          },
-        })
-      : addGenres({
-          variables: {
-            year: "2010",
-            rating: null,
-            genre: { name: genre.name, genreId: genre.id },
-          },
-        });
+    selected &&
+      deleteGenres({
+        variables: {
+          id: genresState.filter((id) => id === genre.id).join(),
+          filter: "cloudGenres",
+        },
+      });
     selected
       ? setGenresState(...[genresState.filter((movie) => movie !== genre.id)])
       : setGenresState([...genresState, genre.id]);
@@ -51,7 +42,9 @@ export const CloudGenres = (props) => {
           genre={genre}
           key={genre.name}
           selected={genresState.includes(genre.id)}
+          onClick={props.getDataFiltres}
           handleClick={handleClick}
+          getGenreId={props.getGenreId}
         />
       ))}
     </div>

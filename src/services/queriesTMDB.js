@@ -1,5 +1,5 @@
 const apiKey = "09f30eef2a2368938501ec982e6bd612";
-const url = "https://api.themoviedb.org/3/";
+const url = process.env.REACT_APP_API_KEY;
 const lang = localStorage.getItem("i18nextLng");
 
 export const movieGenres = () => {

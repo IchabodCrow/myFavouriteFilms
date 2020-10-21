@@ -7,7 +7,6 @@ export default gql`
     $genre: GenreInput!) {
       updateFiltres( year: $year, rating: $rating, genre: $genre){
         genreId
-        name
       }
   }
 `;

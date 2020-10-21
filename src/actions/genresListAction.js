@@ -1,8 +1,5 @@
-import { useQuery } from "@apollo/client";
-import movies from "../queries/genresList";
 import { movieGenres } from "../services/queriesTMDB";
 import { GENRES_LIST } from "./actionsConst"
-
 
 export const genresList = () => {
   return (dispatch) => {
