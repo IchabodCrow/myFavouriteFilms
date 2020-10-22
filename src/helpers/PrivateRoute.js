@@ -2,17 +2,17 @@ import React from "react"
 import { Redirect, Route } from "react-router-dom"
 
 
-export const PrivateRoute = ({ component: Component, ...rest}) => (
+export const PrivateRoute = ({ children, ...rest}) => (
   <Route
     {...rest}
-    render={props => 
+    render={({location}) => 
       localStorage.getItem("token") ? (
-        <Component {...props}/>
+        children
       ) : (
         <Redirect
           to={{
             pathname:"/",
-            state: { from: props.location}
+            state: { from: location}
           }}
         />
       )

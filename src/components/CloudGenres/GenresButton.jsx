@@ -1,7 +1,7 @@
 import React from "react";
 import className from "classnames";
 
-export const GenresButton = ({ genre, handleClick, selected }) => {
+export const GenresButton = ({ genre, handleClick, selected, getGenreId }) => {
   const allClass = className(
     "bg-yellow-300",
     { "border-green-400": selected },
@@ -20,7 +20,12 @@ export const GenresButton = ({ genre, handleClick, selected }) => {
     <div
       className={allClass}
       id={genre.id}
-      onClick={() => handleClick(genre.id, selected)}
+      name="genres"
+      value={genre.id}
+      onClick={() => {
+        handleClick(genre, selected);
+        getGenreId(genre.id, selected);
+      }}
     >
       {genre.name}
     </div>
