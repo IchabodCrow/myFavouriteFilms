@@ -9,11 +9,12 @@ import './i18n';
 import App from "./App"
 import * as serviceWorker from "./serviceWorker"
 import store from "./store/store"
-
 import "./styles/tailwind.compiled.css"
 
+const url = "http://localhost:4000";
+
 const client = new ApolloClient ({
-  uri: "http://localhost:4000",
+  uri: url,
   request: (operation) => {
     const token = localStorage.getItem("token");
 
