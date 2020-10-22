@@ -11,10 +11,8 @@ import * as serviceWorker from "./serviceWorker"
 import store from "./store/store"
 import "./styles/tailwind.compiled.css"
 
-const url = "http://localhost:4000";
-
 const client = new ApolloClient ({
-  uri: url,
+  uri: process.env.REACT_APP_SERVER_URL,
   request: (operation) => {
     const token = localStorage.getItem("token");
 
