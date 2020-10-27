@@ -6,11 +6,11 @@ import EmailField from "components/UI/EmailField";
 import PasswordField from "components/UI/PasswordField";
 import Action from "components/UI/Action";
 
-const LoginForm = (props) => {
+const LoginForm = ({handleSubmit}) => {
   const { t } = useTranslation();
   return (
     <Form
-      onSubmit={props.handleSubmit}
+      onSubmit={handleSubmit}
       render={({ submitError, modifiedSinceLastSubmit, handleSubmit }) => (
         <div className="flex justify-center mr-8">
           <form onSubmit={handleSubmit} className="w-full max-w-sm">
@@ -24,7 +24,7 @@ const LoginForm = (props) => {
               namespace="description"
               required={true}
             />
-            <Action label={t("description.signIn")} />
+            <Action className="self-center" label={t("description.signIn")} />
             {submitError && (
               <div className="text-xl mt-5 text-center m- text-red-400">
                 {modifiedSinceLastSubmit || submitError}

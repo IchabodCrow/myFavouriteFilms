@@ -14,14 +14,16 @@ const LoginPage = () => {
   const [data, { error, loading}] = useMutation(login, {
     onCompleted(data){
       localStorage.setItem('token', data.login.token)
-      if(data.login.token){
+      if(data.login.token ){
         history.push("/movie");
       } else {
         return { [FORM_ERROR]: `${t("validation.submitError")}`};
       }
-    },
-    errorPolicy: 'all' 
+    }, 
+    onError(){}
   })
+
+  if (loading) return <p>Loading...</p>;
   
   const handleSubmit = (userValue) => {
     localStorage.setItem("userInSession", JSON.stringify(userValue.email));
@@ -29,13 +31,14 @@ const LoginPage = () => {
       variables: userValue
     });
   };
-
-  if (loading) return <p>Loading...</p>;
+  
   return (
     <div className="flex flex-col">
       <PageHeader />
       <LoginForm handleSubmit={handleSubmit} />
-      {error && <div>{error.message}</div>}
+      {error && error.graphQLErrors.map(error => {
+        return  <div key={error} className="flex flex-row justify-center leading-8 m-4 text-red-400">{error.message}</div>
+      })}
     </div>
   );
 };
