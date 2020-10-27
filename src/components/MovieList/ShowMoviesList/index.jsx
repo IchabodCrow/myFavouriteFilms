@@ -14,13 +14,13 @@ export const ShowMoviesList = ({ page, movies, state, onClick }) => {
             {page === "main" ? (
               <CheckOrCancelButtons
                 selected={state.includes(movie.movieId)}
-                movieId={movie.id}
+                movieId={movie.movieId}
                 onClick={onClick}
               />
             ) : (
               <SaveMeButton
                 selected={state.includes(movie.movieId)}
-                movieId={movie.id}
+                movieId={movie.movieId}
                 onClick={onClick}
               />
             )}

@@ -2,17 +2,16 @@ import React from "react";
 import { withRouter, useHistory } from "react-router-dom";
 import { FORM_ERROR } from "final-form";
 import { useTranslation } from "react-i18next";
+import { useMutation } from "@apollo/client";
 
 import LoginForm from "./LoginForm";
 import PageHeader from "components/PageHeader";
-import { useMutation } from "@apollo/client";
-import login from "../../mutation/login";
-
+import login from "mutation/login";
 
 const LoginPage = () => {
   const history = useHistory();
   const { t } = useTranslation();
-  const [data, {error, loading}] = useMutation(login, {
+  const [data, { error, loading}] = useMutation(login, {
     onCompleted(data){
       localStorage.setItem('token', data.login.token)
       if(data.login.token){
@@ -20,11 +19,9 @@ const LoginPage = () => {
       } else {
         return { [FORM_ERROR]: `${t("validation.submitError")}`};
       }
-    }
+    },
+    errorPolicy: 'all' 
   })
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :(</p>;
   
   const handleSubmit = (userValue) => {
     localStorage.setItem("userInSession", JSON.stringify(userValue.email));
@@ -33,10 +30,12 @@ const LoginPage = () => {
     });
   };
 
+  if (loading) return <p>Loading...</p>;
   return (
     <div className="flex flex-col">
       <PageHeader />
       <LoginForm handleSubmit={handleSubmit} />
+      {error && <div>{error.message}</div>}
     </div>
   );
 };

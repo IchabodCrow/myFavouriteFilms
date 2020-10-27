@@ -1,8 +1,9 @@
 import { connect } from "react-redux";
 import { graphql } from "@apollo/react-hoc";
-import movieList from "../../queries/movieList"
 
 import { MovieList } from "components/MovieList";
+import { selectedMoviesId } from "../../actions/selectedMoviesIdArtion";
+import  movieList from "../../queries/movieList"
 
 const mapStateToProps = (state) => {
   return {
@@ -10,9 +11,15 @@ const mapStateToProps = (state) => {
   };
 };
 
+const mapDispatchToProps = dispatch => {
+  return {
+    moviesIdArr: moviesId => dispatch(selectedMoviesId(moviesId))
+  }
+}
+
 const MovieListContainer = connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(MovieList);
 
 export default graphql(movieList)(MovieListContainer)

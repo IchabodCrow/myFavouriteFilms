@@ -2,13 +2,10 @@ import React from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-import Main from "./components/MainPage/main";
-import { prepareInitialData } from "./services/insteadServer";
+import Main from "./components/MainPage";
 import { PrivateRoute } from "./helpers/PrivateRoute";
 import LoginPage from "./components/Login/LoginPage";
 import FavoriteMoviesPage from "./components/FavoriteMoviesPage";
-
-prepareInitialData();
 
 function App() {
   const { i18n } = useTranslation();

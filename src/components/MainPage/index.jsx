@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useHistory, withRouter } from "react-router-dom";
+import { useMutation } from "@apollo/client";
 
 import CloudGenresContainer from "containers/CloudGenresContainer";
 import PageHeader from "components/PageHeader";
@@ -7,7 +8,6 @@ import UserNameBlock from "components/UserNameBlock";
 import MovieListContainer from "containers/MovieListContainer";
 import Action from "components/UI/Action";
 import { BlocksOrListButtons } from "components/UI/BlocksOrListButtons";
-import { useMutation } from "@apollo/client";
 import updateFiltres from "mutation/updateFiltres";
 
 const Main = () => {

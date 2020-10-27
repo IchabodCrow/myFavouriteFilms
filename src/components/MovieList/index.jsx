@@ -6,16 +6,18 @@ import { ShowMoviesBlocks } from "./ShowMoviesBlocks";
 import addMovie from "mutation/addMovie";
 import deleteMovie from "mutation/deleteMovie";
 
-export const MovieList = ({ page, view, data }) => {
+export const MovieList = ({ page, view, data, moviesIdArr }) => {
   const [stateMark, setStateMark] = useState([]);
   const [addMovieMutation] = useMutation(addMovie);
   const [deleteMovieMutation] = useMutation(deleteMovie);
 
   useEffect(() => {
     data.refetch();
-  }, [data]);
+    moviesIdArr(stateMark)
+  }, [data, moviesIdArr, stateMark]);
 
   const markAsViewed = ({ selected, movieId }) => {
+
     selected
       ? setStateMark(...[stateMark.filter((movie) => movie !== movieId)])
       : setStateMark([...stateMark, movieId]);

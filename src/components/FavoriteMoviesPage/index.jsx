@@ -2,14 +2,14 @@
 import React, { useState } from "react"
 import { Slider } from 'react-rainbow-components'
 import { useMutation } from "@apollo/client"
+import { useTranslation } from "react-i18next";
+import { withRouter } from "react-router-dom"
 
 import PageHeader from 'components/PageHeader'
 import CloudGenresContainer from "containers/CloudGenresContainer"
 import { BlocksOrListButtons } from "components/UI/BlocksOrListButtons"
 import { SelectYear } from "components/UI/SelectYear";
 import MovieListContainer from "containers/MovieListContainer";
-import { useTranslation } from "react-i18next";
-import { withRouter } from "react-router-dom"
 import updateFiltres from "mutation/updateFiltres"
 
 const FavoriteMoviesPage = () => {
