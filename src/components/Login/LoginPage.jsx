@@ -27,6 +27,7 @@ const LoginPage = () => {
   if (error) return <p>Error :(</p>;
   
   const handleSubmit = (userValue) => {
+    localStorage.setItem("userInSession", JSON.stringify(userValue.email));
     data({
       variables: userValue
     });
