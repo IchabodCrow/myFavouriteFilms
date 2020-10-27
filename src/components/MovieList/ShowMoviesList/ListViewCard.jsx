@@ -7,13 +7,13 @@ export const ListViewCard = ({ state, movie }) => {
   const { t } = useTranslation();
   const styleForMarkAsViewed = className(
     "flex lg:max-w-full max-w-sm w-3/4 m-10 shadow-xl rounded-lg",
-    { "opacity-50": state.findIndex((id) => id === movie.id) !== -1 }
+    { "opacity-50": state.findIndex((id) => id === movie.movieId) !== -1 }
   );
   return (
     <div className={styleForMarkAsViewed}>
       <img
         className="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden "
-        src={`${imgUrl + movie.poster_path}`}
+        src={`${imgUrl + movie.img}`}
         alt={movie.title}
       />
       <div
@@ -30,9 +30,9 @@ export const ListViewCard = ({ state, movie }) => {
         <div className="flex items-center">
           <div className="text-sm">
             <p className="text-gray-900 leading-none">
-              {t("movieCard.voteAverage")}: {movie.vote_average}
+              {t("movieCard.voteAverage")} {movie.average}
             </p>
-            <p className="text-gray-600">{movie.release_date}</p>
+            <p className="text-gray-600">{movie.date}</p>
           </div>
         </div>
       </div>

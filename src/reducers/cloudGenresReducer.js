@@ -1,4 +1,4 @@
-import { GENRES_LIST} from "actions/actionsConst";
+import { GENRES_LIST} from "../actions/actionsConst.js";
 
 const InitialState = {
   genres: [],

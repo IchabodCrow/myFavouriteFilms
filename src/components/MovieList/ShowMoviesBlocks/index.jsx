@@ -7,20 +7,20 @@ import { BlockTypeCard } from "./BlockTypeCard";
 export const ShowMoviesBlocks = ({movies, state, onClick, page}) => {
   return (
     <div className="flex flex-row flex-wrap">
-      {movies && movies.results.map((movie) => {
+      {movies && movies.movieList.map((movie) => {
         return (
           <div className="flex flex-row w-1/4" key={movie.title}>
             <BlockTypeCard state={state} movie={movie} />
             {page === "main" ? (
               <CheckOrCancelButtons
-                selected={state.includes(movie.id)}
-                movieId={movie.id}
+                selected={state.includes(movie.movieId)}
+                movieId={movie.movieId}
                 onClick={onClick}
               />
             ) : (
               <SaveMeButton
-                selected={state.includes(movie.id)}
-                movieId={movie.id}
+                selected={state.includes(movie.movieId)}
+                movieId={movie.movieId}
                 onClick={onClick}
               />
             )}

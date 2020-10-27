@@ -19,12 +19,12 @@ export const GenresButton = ({ genre, handleClick, selected, getGenreId }) => {
   return (
     <div
       className={allClass}
-      id={genre.id}
+      id={genre.genreId}
       name="genres"
-      value={genre.id}
+      value={genre.genreId}
       onClick={() => {
         handleClick(genre, selected);
-        getGenreId(genre.id, selected);
+        getGenreId(genre.genreId, selected);
       }}
     >
       {genre.name}

@@ -4,7 +4,7 @@ export default gql`
   mutation updateFiltres(
     $year: String, 
     $rating: String, 
-    $genre: GenreInput!) {
+    $genre: String) {
       updateFiltres( year: $year, rating: $rating, genre: $genre){
         genreId
       }

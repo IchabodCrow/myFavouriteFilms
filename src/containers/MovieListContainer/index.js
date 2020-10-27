@@ -1,23 +1,18 @@
 import { connect } from "react-redux";
-import { movieList } from "actions/movieListAction";
+import { graphql } from "@apollo/react-hoc";
+import movieList from "../../queries/movieList"
+
 import { MovieList } from "components/MovieList";
 
 const mapStateToProps = (state) => {
   return {
-    movies: state.movieListReducer,
     genresId: state.selectedGenresIdReducer,
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    moviesList: (genres) => dispatch(movieList(genres)),
   };
 };
 
 const MovieListContainer = connect(
   mapStateToProps,
-  mapDispatchToProps
+  null
 )(MovieList);
 
-export default MovieListContainer;
+export default graphql(movieList)(MovieListContainer)

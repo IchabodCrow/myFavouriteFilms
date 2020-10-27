@@ -1,25 +1,19 @@
 import { connect } from "react-redux";
+import { graphql } from "@apollo/react-hoc";
 
 import { CloudGenres } from "components/CloudGenres";
-import { genresList } from "actions/genresListAction";
 import { selectedGenresId } from "actions/selectedGenresIdAction";
-
-const mapStateToProps = (state) => {
-  return {
-    genres: state.cloudGenresReducer.genres,
-  };
-};
+import genresList from "../../queries/genresList";
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    genresList: () => dispatch(genresList(null)),
     genresIdArr: (genresId) => dispatch(selectedGenresId(genresId)),
   };
 };
 
 const CloudGenresContainer = connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(CloudGenres);
 
-export default CloudGenresContainer;
+export default  graphql(genresList)(CloudGenresContainer);

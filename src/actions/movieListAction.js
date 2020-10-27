@@ -2,10 +2,9 @@ import { movieListWithFilters } from "services/queriesTMDB";
 import { MOVIE_LIST } from "./actionsConst";
 
 export const movieList = (genres) => {
-  return (dispatch) => {
-    movieListWithFilters(genres).then((movies) =>
+  return (dispatch) => { movieListWithFilters(genres).then((movies) =>
       dispatch(movieListReceived(movies))
-    );
+    ).catch( error => console.log(error))
   };
 };
 

@@ -18,13 +18,6 @@ const Main = () => {
     genres: [],
   });
 
-  useEffect( () => {
-    addGenres({
-      variables: {
-        genre: { genreId: filtresState.genres }
-      }
-    })
-  })
   const changeDisplay = () => {
     setStateView({
       view: !stateView.view,
@@ -40,6 +33,12 @@ const Main = () => {
        ...filtresState,
        genres: [...filtresState.genres, genreId]
      })
+
+     addGenres({
+      variables: {
+        genre: filtresState.genres.join()
+      }
+    })
    }
   const handleClick = () => {
     history.push("/favorite");

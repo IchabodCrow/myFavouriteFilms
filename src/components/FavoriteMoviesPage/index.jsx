@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import { Slider } from 'react-rainbow-components'
 import { useMutation } from "@apollo/client"
 
@@ -15,29 +15,20 @@ import updateFiltres from "mutation/updateFiltres"
 const FavoriteMoviesPage = () => {
   const { t } = useTranslation();
   const [stateView, setStateView] = useState({ view: true });
-  const [addGenres] = useMutation(updateFiltres);
   const [filtresState, setFiltresState] = useState({
     year: "",
-    rating: "5",
+    rating: "",
     genres: [],
   });
-
-  useEffect(() => {
-    addGenres({
-      variables: {
-        year: filtresState.year,
-        rating: filtresState.rating,
-        genre: { genreId: filtresState.genres },
-      },
-    });
-  });
-
+  const [addGenres] = useMutation(updateFiltres);
   const changeDisplay = () => {
     setStateView({
       view: !stateView.view,
     });
   };
+
   const getGenreId = (genreId, selected) => {
+    const genresArray = [];
     selected
       ? setFiltresState({
           ...filtresState,
@@ -47,11 +38,26 @@ const FavoriteMoviesPage = () => {
           ...filtresState,
           genres: [...filtresState.genres, genreId],
         });
+
+    selected
+      ? genresArray.filter((genre) => genre !== genreId)
+      : genresArray.push(genreId);
+
+    addGenres({
+      variables: {
+        genre: genresArray.join(),
+      },
+    });
   };
   const getDataFiltres = (e) => {
     setFiltresState({
       ...filtresState,
       [e.target.name]: e.target.value,
+    });
+    addGenres({
+      variables: {
+        [e.target.name]: e.target.value,
+      },
     });
   };
 
@@ -80,6 +86,7 @@ const FavoriteMoviesPage = () => {
         view={stateView.view}
         filtres={filtresState}
         page="favorite"
+        addGenres={addGenres}
       />
     </div>
   );

@@ -7,19 +7,19 @@ import { ListViewCard } from "./ListViewCard";
 export const ShowMoviesList = ({ page, movies, state, onClick }) => {
   return (
     <div>
-      {movies && movies.results.map((movie) => {
+      {movies && movies.movieList?.map((movie) => {
         return (
           <div className="flex flex-row justify-center" key={movie.title}>
             <ListViewCard state={state} movie={movie} />
             {page === "main" ? (
               <CheckOrCancelButtons
-                selected={state.includes(movie.id)}
+                selected={state.includes(movie.movieId)}
                 movieId={movie.id}
                 onClick={onClick}
               />
             ) : (
               <SaveMeButton
-                selected={state.includes(movie.id)}
+                selected={state.includes(movie.movieId)}
                 movieId={movie.id}
                 onClick={onClick}
               />
