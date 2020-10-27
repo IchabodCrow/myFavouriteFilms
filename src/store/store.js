@@ -1,8 +1,6 @@
 import { createStore, compose, applyMiddleware, combineReducers } from "redux";
 import thunk from 'redux-thunk'
 
-import cloudGenresReducer from 'reducers/cloudGenresReducer'
-import movieListReducer from 'reducers/movieListReducer'
 import selectedGenresIdReducer from 'reducers/selectedGenresIdReducer'
 import selectedMoviesIdReducer from 'reducers/selectedMoviesIdReducer'
 
@@ -14,8 +12,6 @@ raceLimit: 55,
 }) : compose;
 
 const reducers = combineReducers({
-  cloudGenresReducer,
-  movieListReducer,
   selectedGenresIdReducer,
   selectedMoviesIdReducer
 })

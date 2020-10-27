@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import { graphql } from "@apollo/react-hoc";
 
 import { MovieList } from "components/MovieList";
-import { selectedMoviesId } from "../../actions/selectedMoviesIdArtion";
+import { selectedMoviesId } from "../../actions/selectedMoviesIdAction";
 import  movieList from "../../queries/movieList"
 
 const mapStateToProps = (state) => {
